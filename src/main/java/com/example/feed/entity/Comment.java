@@ -20,8 +20,7 @@ public class Comment {
     private String comment;
 
     @ManyToOne
-    private Feed feed;
-    @ManyToOne
+    @Setter
     private User author;
 
     @CreationTimestamp
@@ -30,9 +29,8 @@ public class Comment {
     private OffsetDateTime updateAt;
 
     @Builder
-    public Comment(String comment, Feed feed, User author) {
+    public Comment(String comment, User author) {
         this.comment = comment;
-        this.feed = feed;
         this.author = author;
     }
 }

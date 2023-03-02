@@ -37,10 +37,6 @@ public class JpaFeedApplication {
             System.out.println("------------------------------");
             feedLikeService.findAll();
             System.out.println("------------------------------");
-            feedService.findAll();
-            System.out.println("------------------------------");
-            userService.findAll();
-            System.out.println("------------------------------");
         };
     }
 
@@ -86,18 +82,11 @@ public class JpaFeedApplication {
             feedService.save(feed3, user1.getId());
 
             Comment comment = Comment.builder()
-                    .feed(feed2)
                     .comment("user1 comment")
-                    .author(user1)
                     .build();
-            commentService.save(comment);
+            commentService.save(comment, user1.getId(), feed3.getId());
 
-//            FeedLike feedLike = FeedLike.builder()
-//                    .feed(feed2)
-//                    .author(user1)
-//                    .build();
-//            feedLikeService.save(feedLike);
-
+            feedLikeService.save(user1.getId(), feed3.getId());
         };
     }
 }

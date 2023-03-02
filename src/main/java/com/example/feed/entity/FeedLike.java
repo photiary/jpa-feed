@@ -19,8 +19,7 @@ public class FeedLike {
     private Long id;
 
     @ManyToOne
-    private Feed feed;
-    @ManyToOne
+    @Setter
     private User author;
 
     @CreationTimestamp
@@ -29,8 +28,7 @@ public class FeedLike {
     private OffsetDateTime updateAt;
 
     @Builder
-    public FeedLike(Feed feed, User author) {
-        this.feed = feed;
+    public FeedLike(User author) {
         this.author = author;
     }
 }

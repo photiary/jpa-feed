@@ -30,9 +30,8 @@ public class FeedService {
     public void save(Feed feed, Long userId) {
         User user = userRepository.findById(userId)
                 .orElseThrow();
-        feed.setAuthor(user);
         user.getFeedList().add(feed);
-//        user.addFeed(feed);
+        feed.setAuthor(user);
         this.save(feed);
     }
 

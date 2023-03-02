@@ -42,11 +42,4 @@ public class User {
         this.password = password;
         this.name = name;
     }
-
-//    public void addFeed(Feed feed) {
-//        this.feedList.add(feed);
-//        if (feed.getAuthor() != this) {
-//            feed.setAuthor(this);
-//        }
-//    }
 }

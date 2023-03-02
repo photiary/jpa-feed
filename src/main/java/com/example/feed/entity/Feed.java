@@ -52,11 +52,4 @@ public class Feed {
     public Integer getCountFeedLike() {
         return this.getFeedLikeList().size();
     }
-
-//    public void setAuthor(User author) {
-//        this.author = author;
-//        if (!author.getFeedList().contains(this)) {
-//            author.getFeedList().add(this);
-//        }
-//    }
 }
