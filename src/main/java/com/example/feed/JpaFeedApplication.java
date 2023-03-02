@@ -7,6 +7,7 @@ import com.example.feed.service.CommentService;
 import com.example.feed.service.FeedLikeService;
 import com.example.feed.service.FeedService;
 import com.example.feed.service.UserService;
+import org.modelmapper.ModelMapper;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -38,6 +39,11 @@ public class JpaFeedApplication {
             feedLikeService.findAll();
             System.out.println("------------------------------");
         };
+    }
+
+    @Bean
+    public ModelMapper modelMapper() {
+        return new ModelMapper();
     }
 
     @Bean
@@ -79,7 +85,7 @@ public class JpaFeedApplication {
                     .title("feed3Title")
                     .contents("feed3Contents")
                     .build();
-            feedService.save(feed3, user1.getId());
+            feedService.save(feed3, user2.getId());
 
             Comment comment = Comment.builder()
                     .comment("user1 comment")
