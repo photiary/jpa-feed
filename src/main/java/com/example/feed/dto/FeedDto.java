@@ -15,4 +15,7 @@ public class FeedDto {
     private List<CommentDto> commentList;
     private OffsetDateTime createAt;
     private OffsetDateTime updateAt;
+
+    private Integer countComment;
+    private Integer countFeedLike;
 }

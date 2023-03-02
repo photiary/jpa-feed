@@ -1,0 +1,23 @@
+type Query {
+    findAllUser: [User]
+    findAllFeed: [Feed]
+}
+
+type User {
+    id: ID
+    email: String
+    name: String
+    createAt: String
+    updateAt: String
+}
+
+type Feed {
+    id: ID
+    title: String
+    contents: String
+    author: User
+    createAt: String
+    updateAt: String
+    countComment: Int
+}
+

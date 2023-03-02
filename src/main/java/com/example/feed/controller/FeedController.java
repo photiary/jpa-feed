@@ -5,6 +5,7 @@ import com.example.feed.entity.Feed;
 import com.example.feed.service.FeedService;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.graphql.data.method.annotation.QueryMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -22,8 +23,9 @@ public class FeedController {
         this.modelMapper = modelMapper;
     }
 
+    @QueryMapping
     @GetMapping(path = "/feeds")
-    public List<FeedDto> findAll() {
+    public List<FeedDto> findAllFeed() {
         List<Feed> feedList = feedService.findAll();
         return feedList.stream()
                 .map(feed -> modelMapper.map(feed, FeedDto.class))
